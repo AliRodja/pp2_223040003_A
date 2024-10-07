@@ -1,3 +1,4 @@
+package Pertemuan2.Latihan;
 import java.awt.event.*;
 import javax.swing.*;
 

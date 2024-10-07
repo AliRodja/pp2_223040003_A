@@ -1,9 +1,10 @@
+package Pertemuan2.Latihan;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class HelloInput extends JFrame{
+public class HelloTextArea extends JFrame{
 
-    public HelloInput(){
+    public HelloTextArea(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel labelInput = new JLabel("Input Nama");
@@ -15,20 +16,21 @@ public class HelloInput extends JFrame{
         JButton button = new JButton("Klik");
         button.setBounds(130,100,100,40);
 
-        JLabel labelOutput = new JLabel("");
-        labelOutput.setBounds(130,150,100,10);
+        JTextArea txtOutput = new JTextArea("");
+        txtOutput.setBounds(130,150,100,100);
 
         button.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 String nama = textField.getText();
-                labelOutput.setText("Hello " + nama);
+                txtOutput.append("Hello " + nama + "\n");
+                textField.setText("");
             }
         });
 
         this.add(button);
         this.add(textField);
         this.add(labelInput);
-        this.add(labelOutput);
+        this.add(txtOutput);
 
         this.setSize(400,500);
         this.setLayout(null);
@@ -37,7 +39,7 @@ public class HelloInput extends JFrame{
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run (){
-                HelloInput h = new HelloInput();
+                HelloTextArea h = new HelloTextArea();
                 h.setVisible(true);
             }
         });

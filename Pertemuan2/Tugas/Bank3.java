@@ -1,13 +1,22 @@
-import java.awt.event.*;
+package Pertemuan2.Tugas;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
-public class Bankk2 extends JFrame {
+public class Bank3 extends JFrame {
 
     private boolean checkBoxSelected = false;
     private JMenuBar menuBar;
+    private JSlider slider;
 
-    
-    public Bankk2() {
+    public Bank3() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
@@ -57,6 +66,15 @@ public class Bankk2 extends JFrame {
         JTextArea txtOutput = new JTextArea("");
         txtOutput.setBounds(15, 450, 550, 100);
 
+        JLabel sliderLabel = new JLabel("Frekuensi transaksi per bulan : ");
+        sliderLabel.setBounds(15, 385, 500, 30);
+        slider = new JSlider(0, 100, 0);
+        slider.setBounds(15, 425, 380, 75);
+        slider.setPaintTicks(true);
+        slider.setMinorTickSpacing(5);
+        slider.setMajorTickSpacing(10);
+        slider.setPaintLabels(true);
+
         checkBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 checkBoxSelected = e.getStateChange() == ItemEvent.SELECTED;
@@ -104,6 +122,8 @@ public class Bankk2 extends JFrame {
         this.add(checkBox);
         this.add(labelList);
         this.add(list);
+        this.add(sliderLabel);
+        this.add(slider);
 
         this.setSize(600, 600);
         this.setLayout(null);
@@ -112,7 +132,7 @@ public class Bankk2 extends JFrame {
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                Bankk2 h = new Bankk2();
+                Bank3 h = new Bank3();
                 h.setVisible(true);
             }
         });
