@@ -184,7 +184,8 @@ public class Bank2 extends JFrame implements ActionListener, ItemListener, Chang
                         JK = radio2.getText();
                     }
 
-                    String dataTabungan = listJenisTabungan.getSelectedValue() != null ? listJenisTabungan.getSelectedValue() : "Tidak ada tabungan yang dipilih";
+                    String dataTabungan = listJenisTabungan.getSelectedValue() != null ? 
+                    listJenisTabungan.getSelectedValue() : "Tidak ada tabungan yang dipilih";
 
                     String wnaStatus = isCheckBoxSelected ? "WNA : Ya" : "WNA : TIDAK";
                     int frekuensiTransaksi = slider.getValue();
@@ -199,13 +200,15 @@ public class Bank2 extends JFrame implements ActionListener, ItemListener, Chang
                             "\n" + "=".repeat(30) + "\n";
 
                     areaBiodata.append(biodata);
-                    JOptionPane.showMessageDialog(null, "Berhasil Menambah Data", "Title", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog
+                    (null, "Berhasil Menambah Data", "Title", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }
 
         if (e.getSource() == tombolReset) {
-            int konfirmasi = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int konfirmasi = JOptionPane.showConfirmDialog
+            (this, "Apakah Anda yakin?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             JPasswordField passwordField = new JPasswordField();
             int masukkanPassword = JOptionPane.showConfirmDialog(
                     this,
@@ -228,7 +231,8 @@ public class Bank2 extends JFrame implements ActionListener, ItemListener, Chang
                         listJenisTabungan.clearSelection();
                         areaBiodata.setText("");
                     }
-                    JOptionPane.showMessageDialog(null, "Berhasil Mereset Field", "Title", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog
+                    (null, "Berhasil Mereset Field", "Title", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }

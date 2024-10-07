@@ -2,7 +2,7 @@ package Pertemuan2.Tugas;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Bankk2 extends JFrame {
+public class Bankk4 extends JFrame {
 
     private boolean checkBoxSelected = false;
     private JTextField textFieldNama;
@@ -11,21 +11,22 @@ public class Bankk2 extends JFrame {
     private JCheckBox checkBox;
     private ButtonGroup bg;
     private JList<String> list;
+    private JSpinner spinner;
 
-    public Bankk2() {
+    public Bankk4() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JMenuBar menuBar = new JMenuBar();
-        
+
         JMenu menu = new JMenu("Menu");
         menuBar.add(menu);
-        
+  
         JMenuItem resetMenuItem = new JMenuItem("Reset");
         JMenuItem exitMenuItem = new JMenuItem("Exit");
-        
+ 
         menu.add(resetMenuItem);
         menu.add(exitMenuItem);
-        
+
         this.setJMenuBar(menuBar);
 
         resetMenuItem.addActionListener(new ActionListener() {
@@ -36,9 +37,10 @@ public class Bankk2 extends JFrame {
                 checkBox.setSelected(false);
                 bg.clearSelection();
                 list.clearSelection();
+                spinner.setValue(1);
             }
         });
-        
+
         exitMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
@@ -80,11 +82,18 @@ public class Bankk2 extends JFrame {
         list = new JList<>(accountTypes);
         list.setBounds(15, 305, 350, 70);
 
+        JLabel labelSpinner = new JLabel("Jumlah Transaksi Per Bulan:");
+        labelSpinner.setBounds(15, 385, 350, 10);
+        
+        SpinnerModel model = new SpinnerNumberModel(1, 1, 100, 1);
+        spinner = new JSpinner(model);
+        spinner.setBounds(15, 400, 100, 30);
+
         JButton button = new JButton("Simpan");
-        button.setBounds(15, 390, 100, 40);
+        button.setBounds(15, 450, 100, 40);
 
         txtOutput = new JTextArea("");
-        txtOutput.setBounds(15, 450, 550, 100);
+        txtOutput.setBounds(15, 500, 550, 150);
 
         checkBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
@@ -104,12 +113,14 @@ public class Bankk2 extends JFrame {
                 String nomorHp = textFieldHp.getText();
                 String wargaNegaraAsing = checkBoxSelected ? "YA" : "TIDAK";
                 String jenisTabungan = list.getSelectedValue();
+                int jumlahTransaksi = (int) spinner.getValue();
                 txtOutput.setText(""); 
                 txtOutput.append("Nama : " + nama + "\n");
                 txtOutput.append("Nomor HP : " + nomorHp + "\n");
                 txtOutput.append("Jenis Kelamin : " + jenisKelamin + "\n");
                 txtOutput.append("WNA : " + wargaNegaraAsing + "\n");
                 txtOutput.append("Jenis Tabungan : " + jenisTabungan + "\n");
+                txtOutput.append("Jumlah Transaksi Per Bulan : " + jumlahTransaksi + "\n");
                 txtOutput.append("=======================================\n");
                 textFieldNama.setText("");
                 textFieldHp.setText("");
@@ -128,15 +139,17 @@ public class Bankk2 extends JFrame {
         this.add(checkBox);
         this.add(labelList);
         this.add(list);
+        this.add(labelSpinner);
+        this.add(spinner);
 
-        this.setSize(600, 650);
+        this.setSize(600, 750);
         this.setLayout(null);
     }
 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                Bankk2 h = new Bankk2();
+                Bankk4 h = new Bankk4();
                 h.setVisible(true);
             }
         });
