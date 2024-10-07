@@ -95,7 +95,7 @@ public class FormBiodata extends JFrame implements ActionListener, ItemListener 
         if (isCheckBoxSelected) {
             wnaStatus = "WNA: Ya";
         } else {
-            wnaStatus = "WNA: Tidak";
+            wnaStatus = "WNA: TIDAK";
         }
 
         String biodata = "Nama: " + nama + "\nNomor Telepon: " + noHp + "\nJenis Kelamin: " + JK + "\n" + wnaStatus + "\n";
