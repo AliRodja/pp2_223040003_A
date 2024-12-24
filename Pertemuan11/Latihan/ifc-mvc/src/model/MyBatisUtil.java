@@ -13,7 +13,6 @@ public class MyBatisUtil {
                 .build(Resources.getResourceAsStream("mybatis-config.xml"));
         } catch (IOException e) {
             e.printStackTrace();
-            throw new RuntimeException("Error initializing SqlSessionFactory.");
         }
     }
 

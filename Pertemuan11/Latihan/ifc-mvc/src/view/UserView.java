@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package view;
 
 import javax.swing.*;
@@ -21,28 +17,20 @@ public class UserView extends JFrame {
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Panel untuk input form
-        JPanel panel = new JPanel(new GridLayout(3, 2));
+        JPanel panel = new JPanel(new GridLayout(5, 1));
         panel.add(new JLabel("Name:"));
         panel.add(txtName);
         panel.add(new JLabel("Email:"));
         panel.add(txtEmail);
 
-        // Panel untuk tombol
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(btnAdd);
         buttonPanel.add(btnRefresh);
-        
-        // Menambahkan panel tombol ke panel utama
         panel.add(buttonPanel);
 
-        // Set list model untuk JList
         userList.setModel(listModel);
-
-        // Layout untuk seluruh frame
-        setLayout(new BorderLayout());
         add(panel, BorderLayout.NORTH);
-        add(new JScrollPane(userList), BorderLayout.CENTER); // JList di bawah input form
+        add(new JScrollPane(userList), BorderLayout.CENTER);
     }
 
     public String getNameInput() {
@@ -54,20 +42,17 @@ public class UserView extends JFrame {
     }
 
     public void setUserList(String[] users) {
-        listModel.clear(); // Kosongkan list sebelumnya
+        listModel.clear();
         for (String user : users) {
-            listModel.addElement(user); // Menambahkan user ke JList
+            listModel.addElement(user);
         }
     }
 
-    // Menambahkan listener untuk Add User button
     public void addAddUserListener(ActionListener listener) {
         btnAdd.addActionListener(listener);
     }
-
-    // Menambahkan listener untuk Refresh button
-    public void addRefreshListener(ActionListener listener) {
+    
+    public void addRefreshListener(ActionListener listener){
         btnRefresh.addActionListener(listener);
     }
 }
-
